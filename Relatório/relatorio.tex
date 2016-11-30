@@ -86,6 +86,7 @@
 	\end{equation*}
 	
 	\subsection{Aritmética}
+	\label{sec:arit}
 	\paragraph{}O principal propósito da criação dos fasores é permitir uma facilidade em lidar com circuitos de excitação senoidal. Portanto, eles não são usados só para visualização de características do circuito mas para cálculos. O que significa que, a existência de uma aritmética de fasor é imprescindível. Pelas características do fasor, suas operações podem ocorrer entre escalares complexos, entre fasores de mesma frequência e entre fasores de frequências diferentes.
 	
 	Todas as operações demonstradas a seguir serão para fasores de frequências diferentes mas podem ser extrapoladas para fasores com frequências iguais. Simplificações para essas casos serão demonstradas, caso existam. Quando temos que operar com escalares complexos, basta considerá-los como fasores com frequência angular igual ao outro operando.
@@ -188,7 +189,71 @@
 		\label{eq:int}
 	\end{equation}
 	
-	\paragraph{}Quando se está lidando com fasores com frequências angulares $\omega$ diferentes, a aritmética pode ficar muito complexa e gerando sistemas com múltiplas oscilações. Dependendo de quantos fasores de frequências diferentes forem somados, o resultado pode ser inviável, computacionalmente falando. Entretanto, ainda assim é possível é possível essas operações com facilidade por um computador. Para isso, basta o tempo $t$ ser fornecido.
+	\paragraph{}Quando se está lidando com fasores com frequências angulares $\omega$ diferentes, a aritmética pode ficar muito complexa e gerando sistemas com múltiplas oscilações senoidais simultâneas. Dependendo de quantos fasores de frequências diferentes forem somados, o resultado pode ser inviável, computacionalmente falando. Entretanto, ainda assim é possível é possível essas operações com facilidade por um computador, com uma restrição. A restrição é que basta o tempo $t$ ser fornecido.
+	
+	\section{O Projeto}
+	\paragraph{}Inicialmente, também fazia parte da proposta do projeto poder calcular campos eletromagnéticos com pontas de prova em um ambiente 3D e usando cargas em objetos de tamanhos diversos. Essa proposta se tornou muito grande e, de fato, não possui muita ligação com o resto do projeto, que lida com fasores. É perceptível que, portanto, essas duas propostas podem ser divididas em dois projetos completamente diferentes com suas próprias dificuldades, teorias e aprendizados por trás. E esse é o motivo que me fez decidir por focar somente nos fasores.
+
+	Esse projeto está hospedado na íntegra na seguinte página no GitHub: \url{https://github.com/bestknighter/Calculadora-Fasorial}. Lá se encontra esse relatório, o código-fonte e alguns executáveis gerados para testes do protótipo.
+	
+	\subsection{Matemática}
+	\paragraph{}Para se realizar a implementação desse projeto, a parte matemática toda foi colocada no {\em namespace} MathCore. Esse {\em namespace} possui duas {\em structs}, Complexo e Fasor.
+	
+	\subparagraph{Complexo}A {\em struct} Complexo possui funcionalidade única de dar suporte à representação retangular temporal e para facilitar a representação no plano Real x Imaginário na parte gráfica. A figura \ref{fig:complexo} mostra como é pequena a sua implementação, somente 48 linhas incluindo documentação.
+	\begin{figure}[h]
+		\includegraphics[width=\columnwidth]{complexo}
+		\caption{Implementação da {\em struct} Complexo}
+		\label{fig:complexo}
+	\end{figure}
+	
+	\subparagraph{Fasor}A {\em struct} Fasor já é bem maior. Com 171 linhas incluindo documentação, essa struct é a responsável por toda e qualquer operação aritmética envolvendo fasores (figuras \ref{fig:fasor_op_1} e \ref{fig:fasor_op_2}) e pela geração de strings para cada representação existente (figuras \ref{fig:fasor_str_1} e \ref{fig:fasor_str_2}). O protótipo da struct pode ser encontrado na figura \ref{fig:fasor_prot}.
+	\begin{figure}[h]
+		\includegraphics[width=\columnwidth]{fasor_1}
+		\caption{Protótipo de Fasor}
+		\label{fig:fasor_prot}
+	\end{figure}
+	
+	Essa {\em struct} foi implementada com base na parte teórica deste relatório. Todas as funções e contas foram simplesmente uma implementação das equações da seção \ref{sec:arit}.
+	
+	Por exemplo, a operação de adição ({\em operator +} na imagem \ref{fig:fasor_op_1}) usa a equação \ref{eq:add}. A operação de subtração ({\em operator - (lhs, rhs)} na imagem \ref{fig:fasor_op_1}) usa a adição com o oposto ({\em operator - (lhs)} na imagem \ref{fig:fasor_op_1}) do segundo termo da operação, \ref{eq:sub}.
+	A operação de multiplicação  ({\em operator * (lhs, rhs)} na imagem \ref{fig:fasor_op_1}) usa a equação \ref{eq:mult}. A operação de divisão ({\em operator / (lhs, rhs)} na imagem \ref{fig:fasor_op_1}) usa a multiplicação com o inverso ({\em Inverso} na imagem \ref{fig:fasor_op_1})  do segundo termo da operação, \ref{eq:div}.
+	\begin{figure}[h]
+		\includegraphics[width=\columnwidth]{fasor_4}
+		\caption{Operações aritméticas}
+		\label{fig:fasor_op_1}
+	\end{figure}
+	
+	A operação conjugado complexo ({\em Conjugado} na imagem \ref{fig:fasor_op_2}) usa a equação \ref{eq:conj}. A operação de derivação ({\em Derivado} na imagem \ref{fig:fasor_op_2}) usa a equação \ref{eq:der}. E a operação de integração ({\em Integrado} na imagem \ref{fig:fasor_op_2}) usa a equação \ref{eq:int}.
+	\begin{figure}[h]
+		\includegraphics[width=\columnwidth]{fasor_5}
+		\caption{Operações aritméticas}
+		\label{fig:fasor_op_2}
+	\end{figure}
+	
+	Com essas duas classes implementadas, a aplicação já pode ser construída da forma que se desejar e usando a ferramenta que quiser. Poderia ser OpenGL, WebGL, somente texto, Vulkan, Visual C\#, ou qualquer outra API gráfica existente no mercado. Como desejo fazer o código uma vez e fazer a entrega de executáveis em várias plataformas ao mesmo tempo, sem me preocupar com otimizações, para esse protótipo, decidi utilizar a ferramenta Unity. A partir da próxima seção será abordado os específicos de como foi executada a implementação com essa ferramenta.
+	\begin{figure}[h]
+		\includegraphics[width=\columnwidth]{fasor_3}
+		\caption{Diversas representações por string}
+		\label{fig:fasor_str_2}
+	\end{figure}
+	\begin{figure}[h]
+		\includegraphics[width=\columnwidth]{fasor_2}
+		\caption{Diversas representações por string}
+		\label{fig:fasor_str_1}
+	\end{figure}
+	
+	\subsection{Testes}
+	\paragraph{}Primeiramente, para garantir o bom funcionamento da parte mateática, foram implementados testes unitários. Esses testes puderam assegurar a integridade dos resultados durante sua implementação. Quanto a parte gráfica, não foram criados testes unitários pois eles mais dependem de testes, tentativas e erros, ao usar a interface.
+	
+	\subsection{Arquitetura}
+	\paragraph{}Como esse projeto foi proposto para ser feito em pouco tempo, somente um protótipo era planejado para o final. Portanto, a arquitura executada pode não ser a mais eficiente.
+	
+	Nesse projeto, a interface gráfica é que controla tudo. É a interface gráfica que possui gerentes de fasores, que decide quando mudar de tela e quando fazer as contas.
+	
+	Existem 3 cenas: Menu Principal, Visualização Fasorial e Cálculo Fasorial. Cada vez que se sai de uma cena, ao se retornar para ela, tudo será resetado. Da cena Menu Principal é possível ir para qualquer uma das outras cenas, mas cada cena só pode retornar para a cena principal.
+	\subparagraph{Menu Principal}Nessa cena, existem dois botões. Cada um te permite ir para cada uma das outras duas cenas. Ela existe para pré-carregar recursos necessários e permitir o usuário decidir o que ele deseja fazer.
+	\subparagraph{Visualização Fasorial}Em Visualização Fasorial, existe um menu-gaveta na parte de baixo da cena. Esse menu-gaveta é onde o usuário pode inserir ou remover fasores que serão mandados para a visualização no plano. Cada botão possui uma variável do tipo fasor que é onde é armazenado qual fasor aquele botão representa. É a função da classe responsável por desenhar no plano que pega esse fasor, obtêm o complexo no instante 0 e o plota no plano Real x Imaginário.
+	\subparagraph{Cálculo Fasorial}Essa cena é a calculadora propriamente dita. É aqui que o usuário pode executar a operação que desejar. Como esse projeto está em fase de protótipo, só é possível fazer contas entre dois fasores e que possuem frequência angular iguais. Nesse caso, cada campo de inserção de dados é que possui um fasor e toda vez que um deles é terminado de ser editado, uma função é chamada que realiza a atualização do fasor resposta.
 
 %	\bibliography{bibliografia}
 
