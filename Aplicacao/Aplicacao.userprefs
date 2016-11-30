@@ -1,0 +1,46 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MathCore\Fasor.cs">
+    <Files>
+      <File FileName="Assets\Scripts\MathCore\Complexo.cs" Line="12" Column="36" />
+      <File FileName="Assets\Scripts\MathCore\Fasor.cs" Line="160" Column="3" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Aplicacao" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="MathCore" expanded="True">
+                  <Node name="Fasor.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="Assembly-CSharp-Editor" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Tests" expanded="True">
+                  <Node name="Editor" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="Aplicacao" expanded="True" selected="True">
+            <Node name="Assembly-CSharp-Editor" expanded="True">
+              <Node name="Tests" expanded="True">
+                <Node name="FasorTest" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
