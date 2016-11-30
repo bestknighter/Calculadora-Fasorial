@@ -1,43 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MathCore\Fasor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Calculador.cs">
     <Files>
-      <File FileName="Assets\Scripts\MathCore\Complexo.cs" Line="12" Column="36" />
-      <File FileName="Assets\Scripts\MathCore\Fasor.cs" Line="160" Column="3" />
+      <File FileName="Assets\Scripts\Calculador.cs" Line="22" Column="35" />
+      <File FileName="Assets\Scripts\GridOverlay.cs" Line="116" Column="51" />
+      <File FileName="Assets\Scripts\GerenteFasores.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Aplicacao" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="MathCore" expanded="True">
-                  <Node name="Fasor.cs" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-            <Node name="Assembly-CSharp-Editor" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="Tests" expanded="True">
-                  <Node name="Editor" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="Aplicacao" expanded="True" selected="True">
-            <Node name="Assembly-CSharp-Editor" expanded="True">
-              <Node name="Tests" expanded="True">
-                <Node name="FasorTest" expanded="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
