@@ -252,8 +252,35 @@
 	
 	Existem 3 cenas: Menu Principal, Visualização Fasorial e Cálculo Fasorial. Cada vez que se sai de uma cena, ao se retornar para ela, tudo será resetado. Da cena Menu Principal é possível ir para qualquer uma das outras cenas, mas cada cena só pode retornar para a cena principal.
 	\subparagraph{Menu Principal}Nessa cena, existem dois botões. Cada um te permite ir para cada uma das outras duas cenas. Ela existe para pré-carregar recursos necessários e permitir o usuário decidir o que ele deseja fazer.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.25]{app_1}
+		\caption{Menu Principal}
+	\end{figure}
 	\subparagraph{Visualização Fasorial}Em Visualização Fasorial, existe um menu-gaveta na parte de baixo da cena. Esse menu-gaveta é onde o usuário pode inserir ou remover fasores que serão mandados para a visualização no plano. Cada botão possui uma variável do tipo fasor que é onde é armazenado qual fasor aquele botão representa. É a função da classe responsável por desenhar no plano que pega esse fasor, obtêm o complexo no instante 0 e o plota no plano Real x Imaginário.
-	\subparagraph{Cálculo Fasorial}Essa cena é a calculadora propriamente dita. É aqui que o usuário pode executar a operação que desejar. Como esse projeto está em fase de protótipo, só é possível fazer contas entre dois fasores e que possuem frequência angular iguais. Nesse caso, cada campo de inserção de dados é que possui um fasor e toda vez que um deles é terminado de ser editado, uma função é chamada que realiza a atualização do fasor resposta.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.25]{app_2}
+		\caption{Visualização Fasorial}
+	\end{figure}
+	\subparagraph{Cálculo Fasorial}Essa cena é a calculadora propriamente dita. É aqui que o usuário pode executar a operação que desejar. Como esse projeto está em fase de protótipo, só é possível fazer contas entre dois fasores e que possuem frequência angular iguais. Nesse caso, cada grupo de campos de inserção de dados é que possui um fasor e toda vez que um deles é terminado de ser editado, uma função é chamada que realiza a atualização do fasor resposta.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.25]{app_3}
+		\caption{Calculadora Fasorial}
+	\end{figure}
+	
+	\subsection{Problemas e melhorias}
+	\paragraph{}Os únicos problemas que encontrei foram relacionados à ferramenta Unity e não à implementação da matemática por trás da calculadora. Até o presente o momento, os fasores só são visíveis na visualização quando se utiliza { builds} de desenvolvimento. Quando se utiliza versões de distrbuição as linhas simplesmente desaparecem. Usar entradas de toque ao invês do mouse+teclado possui comportamento instável, as vezes funcionando e as vezes não.
+	
+	As melhorias podem ser diversas. Desde investimento em arte para o usuário ter uma boa experiência de uso até otimizações do aplicativo para redução de tamanho, redução de consumo de recursos e aumento de velocidade de execução. Dois destaques especiais são que a visualização fasorial poderia mudar com o tempo e ter linhas mais facilmente visíveis e que poderia ter uma opção para inserir um fasor e ter imediatamente sua conversão para todas as outras notações.
+	
+	\section{Conclusão}
+	\paragraph{}Ao final do projeto, foi possível perceber que a matemática por trás dos fasores não é tão complicada, mas ainda assim é trabalhosa de se fazer. Um produto finalizado e bem acabado que realiza o proposto por esse projeto com certeza trairá vantagens e vale a pena ser implementado. No caso disso ser feito, acredito que, devido à simplicidade do código para o cálculo, seja mais vantajoso usar ferramentas exclusivas de cada plataforma ao invés do Unity.
+	
+	Após alguns testes usando a calculadora para resolver exercícios de circuitos elétricos com fontes senoidais, é perceptivel o ganho de tempo e agilidade para resolver as questões quando se está de posse da calculadora mesmo que seja um protótipo. É bem provável que um aplicativo bem acabado e com bom marketing seja popularmente usado por profissionais e estudantes que tenham que lidar com fasores constantemente.
+	
+	Esse projeto não só tem muito onde melhorar mas também tem muitas funcionalidades que podem ser implementadas. E em ambos os casos, com relativa facilidade. O potencial de ser útil a muitos é inegavelmente visível e tangenciável.
 
 %	\bibliography{bibliografia}
 
