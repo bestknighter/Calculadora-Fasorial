@@ -8,6 +8,7 @@ Ele se trata de uma calculadora para se usar fasores mais facilidade. É possív
 Para mais informações, explicações teóricas, detalhes aprofundados e afins, [leia o aqui o relatório](Relatório/Relatorio.pdf).
 
 #### EN:
+This project was developed for the Introduction to Electromagnetic Study lecture at Universidade de Brasilia teached by Professor Marco Terada.
 
 This is about making phasor arithmetics easier by creating a specific-purpose calculator. With this project, it's possible to visualize phasors in the Real vs Imaginary plane and execute all arithmetic operations, from addition to integration.
 
